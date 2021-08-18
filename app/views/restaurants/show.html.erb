@@ -1,0 +1,16 @@
+<h1><%= @restaurant.name%></h1>
+<h3><%= @restaurant.address%></h3>
+<h3><%= @restaurant.phone_number%></h3>
+
+<% @restaurant.reviews.each do |review| %>
+<li>
+  <%= review.rating %>
+  <%= review.content %>
+</li>
+<% end %>
+
+<%= link_to 'DELETE--🗑️', restaurants_path, method: :destroy, data: { confirm: "Tem certeza champs?" } %>
+<p></p>
+<%= link_to '↩ new review', new_restaurant_review_path(@restaurant) %>
+<p></p>
+<%= link_to '↩ Back to list', restaurants_path %>
